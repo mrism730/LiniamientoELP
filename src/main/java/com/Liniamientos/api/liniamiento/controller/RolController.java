@@ -17,13 +17,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/Rol")
 public class RolController {
+
   @Autowired
   private RolRepository rolRepository;
-
   @GetMapping
   Page<Rol> index(@PageableDefault(sort = "id", size = 5) Pageable pageable) {
       return rolRepository.findAll(pageable);
 
+      @GetMapping("/{id}")
+      Rol obtener(@PathVariable Integer id){
+          return personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+      }
       @ResponseStatus (HttpStatus.CREATED)
       @PostMapping
 
@@ -32,7 +36,7 @@ public class RolController {
           return rolRepository.save(rol);
       }
       @PutMapping("/{id}")
-      Rol update (@PathVariable Integer id, @RequestBody RolDTO rolDTO){
+      Rol update (@PathVariable  Integer id , @RequestBody RolDTO rolDTO){
           Rol rol = rolRepository.findById(id).orElseThrow(EntityNotFoundException::new);
           new ModelMapper().map(rolDTO, rol);
           return rolRepository.save(new Rol());
@@ -43,4 +47,4 @@ public class RolController {
       void destroy (@PathVariable Integer id){
           Rol rol = rolRepository.findById(id).orElseThrow();
       }
-  }
+  }  }
