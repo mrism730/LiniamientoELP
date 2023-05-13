@@ -35,13 +35,14 @@ public class PersonaController {
     }
     @PutMapping("/{id}")
     Persona update(@PathVariable Integer id, @RequestBody PersonaDTO personaDTO){
-        Persona personas = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        new ModelMapper().map(personaDTO, personas);
-        return personaRepository.save(personas);
+        Persona persona = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        new ModelMapper().map(personaDTO, persona);
+        return personaRepository.save(new Persona());
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void destroy(@PathVariable Integer id){
-        Persona personas = personaRepository.findById(id).orElseThrow
-}
+        Persona personas = personaRepository.findById(id).orElseThrow();
+
+}}
