@@ -9,6 +9,22 @@ import lombok.Data;
 @Table(name="preguntaEncuesta")
 public class PreguntasEncuesta {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name ="Id")
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "idencuesta",referencedColumnName ="iencuesta",nullable = false )
+    private Encuesta encuesta;
+
+    @ManyToOne
+    @JoinColumn(name = "idusuario",referencedColumnName ="idusuario",nullable = false )
+    private Usuario usuario;
+
+
+    private String pregunta;
+
 
 
 
