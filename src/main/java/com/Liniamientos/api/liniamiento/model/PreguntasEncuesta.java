@@ -1,7 +1,6 @@
 package com.Liniamientos.api.liniamiento.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -20,7 +19,7 @@ public class PreguntasEncuesta {
 
     @ManyToOne
     @JoinColumn(name = "idusuario",referencedColumnName ="idusuario",nullable = false )
-    private Usuario usuario;
+    private Usuarios usuario;
 
 
     private String preguntas;
