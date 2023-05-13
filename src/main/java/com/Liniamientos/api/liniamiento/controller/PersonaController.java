@@ -45,4 +45,5 @@ public class PersonaController {
     void destroy(@PathVariable Integer id){
         Persona persona = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
-}}
+}
+}
