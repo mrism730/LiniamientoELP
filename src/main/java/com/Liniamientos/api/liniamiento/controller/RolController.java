@@ -24,27 +24,5 @@ public class RolController {
   Page<Rol> index(@PageableDefault(sort = "id", size = 5) Pageable pageable) {
       return rolRepository.findAll(pageable);
 
-      @GetMapping("/{id}")
-      Rol obtener(@PathVariable Integer id){
-          return personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-      }
-      @ResponseStatus (HttpStatus.CREATED)
-      @PostMapping
 
-      Rol store (@RequestBody @Validated RolDTO rolDTO){
-          Rol rol = new ModelMapper().map(rolDTO, Persona.class);
-          return rolRepository.save(rol);
-      }
-      @PutMapping("/{id}")
-      Rol update (@PathVariable  Integer id , @RequestBody RolDTO rolDTO){
-          Rol rol = rolRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-          new ModelMapper().map(rolDTO, rol);
-          return rolRepository.save(new Rol());
-      }
-
-      @ResponseStatus(HttpStatus.NO_CONTENT)
-      @DeleteMapping("/{id}")
-      void destroy (@PathVariable Integer id){
-          Rol rol = rolRepository.findById(id).orElseThrow();
-      }
   }  }

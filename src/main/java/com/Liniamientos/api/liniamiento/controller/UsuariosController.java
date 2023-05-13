@@ -19,38 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/usuarios")
 public class UsuariosController {
 
-    @Autowired
-    private UsuariosController UsuariosRepository;
-    @GetMapping
-    Page<Usuarios> index(@PageableDefault(sort = "id", size = 5) Pageable pageable){
-        return UsuariosRepository.findAll(pageable);
-    }
-    @GetMapping("/{id}")
-    Usuarios obtener(@PathVariable Integer id){
-        return UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-    }
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    Usuarios store(@RequestBody @Validated UsuariosDTO usuariosDTO){
-        Usuarios usuarios = new ModelMapper().map(usuariosDTO, Usuarios.class);
-        return UsuariosRepository.save(usuarios);
-    }
-
-
-
-    @PutMapping("/{id}")
-    Usuarios update(@PathVariable Integer id, @RequestBody UsuariosDTO usuariosDTO){
-        Usuarios usuarios = UsuariosRepository.findAll(id).orElseThrow(EntityNotFoundException::new );
-        new ModelMapper().map(usuariosDTO, usuariosDTO);
-        return UsuariosRepository.save(new Usuarios());
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    void destroy(@PathVariable Integer id){
-          Usuarios usuarios = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-
-    }
 }
 
 
