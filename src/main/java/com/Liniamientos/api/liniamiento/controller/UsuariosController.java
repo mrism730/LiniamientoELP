@@ -40,7 +40,7 @@ public class UsuariosController {
 
     @PutMapping("/{id}")
     Usuarios update(@PathVariable Integer id, @RequestBody UsuariosDTO usuariosDTO){
-        Usuarios persona = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        Usuarios persona = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new );
         new ModelMapper().map(usuariosDTO, us);
         return UsuariosRepository.save(new Usuarios());
     }
