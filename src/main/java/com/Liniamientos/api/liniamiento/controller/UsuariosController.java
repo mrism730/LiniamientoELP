@@ -40,15 +40,15 @@ public class UsuariosController {
 
     @PutMapping("/{id}")
     Usuarios update(@PathVariable Integer id, @RequestBody UsuariosDTO usuariosDTO){
-        Usuarios persona = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new );
-        new ModelMapper().map(usuariosDTO, us);
+        Usuarios usuarios = UsuariosRepository.findAll(id).orElseThrow(EntityNotFoundException::new );
+        new ModelMapper().map(usuariosDTO, usuariosDTO);
         return UsuariosRepository.save(new Usuarios());
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void destroy(@PathVariable Integer id){
-        Usuarios usuarios = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+          Usuarios usuarios = UsuariosRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
     }
 }
