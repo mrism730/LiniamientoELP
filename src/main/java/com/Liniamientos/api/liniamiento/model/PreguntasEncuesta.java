@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="preguntaEncuesta")
+@Table(name="preguntasEncuesta")
 public class PreguntasEncuesta {
 
     @Id
@@ -15,7 +15,7 @@ public class PreguntasEncuesta {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "idencuesta",referencedColumnName ="iencuesta",nullable = false )
+    @JoinColumn(name = "idencuesta",referencedColumnName ="idencuesta",nullable = false )
     private Encuesta encuesta;
 
     @ManyToOne
@@ -23,7 +23,7 @@ public class PreguntasEncuesta {
     private Usuario usuario;
 
 
-    private String pregunta;
+    private String preguntas;
 
 
 
