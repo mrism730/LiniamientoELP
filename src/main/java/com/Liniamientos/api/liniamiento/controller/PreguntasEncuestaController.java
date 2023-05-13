@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/'preguntasencuestas'")
+
 public class PreguntasEncuestaController {
 
 
