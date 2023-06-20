@@ -1,4 +1,5 @@
 package com.Liniamientos.api.liniamiento.repository;
 
-public interface PreguntaEncuestaRepository {
+
+public interface PreguntasEncuestaRepository {
 }

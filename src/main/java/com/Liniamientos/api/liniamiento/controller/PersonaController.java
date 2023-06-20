@@ -43,6 +43,7 @@ public class PersonaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void destroy(@PathVariable Integer id){
-        Persona persona = personaRepository.findById(id).orElseThrow();
+        Persona persona = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
-}}
+}
+}
