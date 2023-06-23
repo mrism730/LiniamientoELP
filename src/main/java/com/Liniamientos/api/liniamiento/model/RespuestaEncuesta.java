@@ -16,12 +16,12 @@ public class RespuestaEncuesta {
   private String Respuesta;
 
   @ManyToOne
-   @JoinColumn ( name = "idUsuario")
+   @JoinColumn ( name = "idUsuarios")
    private Usuarios idUsuarios;
 
   @OneToOne
-   @JoinColumn ( name = "idpreguntasEncuesta")
-   private PreguntasEncuesta idpreguntasEncuesta ;
+   @JoinColumn ( name = "idPreguntasEncuesta")
+   private PreguntasEncuesta idPreguntasEncuesta ;
 
 }
 

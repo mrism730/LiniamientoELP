@@ -14,12 +14,12 @@ public class PreguntasEncuesta {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "idencuesta",referencedColumnName ="idencuesta",nullable = false )
+    @JoinColumn(name = "idEncuesta")
     private Encuesta encuesta;
 
     @ManyToOne
-    @JoinColumn(name = "idusuario",referencedColumnName ="idusuario",nullable = false )
-    private Usuarios usuario;
+    @JoinColumn(name = "idUsuarios")
+    private Usuarios usuarios;
 
 
     private String preguntas;

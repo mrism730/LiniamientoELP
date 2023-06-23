@@ -14,7 +14,7 @@ public class Usuarios {
     @Column(name = "id")
     private Integer id;
 
-    private String usuario;
+    private String usuarios;
     private String passwoord;
 
      @ManyToOne
