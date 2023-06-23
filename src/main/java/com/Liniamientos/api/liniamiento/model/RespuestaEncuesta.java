@@ -5,25 +5,23 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table ( name = "respuestaencuesta" )
+@Table ( name = "respuestaEncuesta" )
 public class RespuestaEncuesta {
 
   @Id
    @GeneratedValue ( strategy = GenerationType.IDENTITY )
-   @Column ( name = "Id")
+   @Column ( name = "id")
    private Integer id;
-
-  @ManyToOne
-   @JoinColumn ( name = "idusuario" , referencedColumnName = "idusuario" , nullable = false)
-   private Usuarios usuarios;
-
-  @OneToOne
-   @JoinColumn ( name = "idpreguntasencuesta" , referencedColumnName = "idpreguntasencuesta" , nullable = false)
-   private PreguntasEncuesta preguntasEncuesta ;
 
   private String Respuesta;
 
+  @ManyToOne
+   @JoinColumn ( name = "idUsuario")
+   private Usuarios idUsuarios;
 
+  @OneToOne
+   @JoinColumn ( name = "idpreguntasEncuesta")
+   private PreguntasEncuesta idpreguntasEncuesta ;
 
 }
 
