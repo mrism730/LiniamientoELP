@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/respuestaEncuesta")
 public class RespuestaEncuestaController {
 
-    @Autowired
-    private RespuestaEncuestaRepository respuestaEncuestaRepository;
+  private final RespuestaEncuestaRepository respuestaEncuestaRepository;
 
-    @GetMapping
+  public RespuestaEncuestaController(RespuestaEncuestaRepository respuestaEncuestaRepository){
+      this.respuestaEncuestaRepository = respuestaEncuestaRepository;
+
+  }    @GetMapping
     Page<RespuestaEncuesta> index(@PageableDefault(sort = "id", size=5)Pageable pageable){
         return respuestaEncuestaRepository.findAll(pageable);
     }

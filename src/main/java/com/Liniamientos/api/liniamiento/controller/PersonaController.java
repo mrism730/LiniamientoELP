@@ -29,12 +29,12 @@ public class PersonaController {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    Persona store(@RequestBody @Validated PersonaDTO personaDTO){
+    Persona crear(@RequestBody @Validated PersonaDTO personaDTO){
         Persona persona = new ModelMapper().map(personaDTO, Persona.class);
         return personaRepository.save(persona);
     }
     @PutMapping("/{id}")
-    Persona update(@PathVariable Integer id, @RequestBody PersonaDTO personaDTO){
+    Persona actualizar(@PathVariable Integer id, @RequestBody PersonaDTO personaDTO){
         Persona persona = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         new ModelMapper().map(personaDTO, persona);
         return personaRepository.save(new Persona());
@@ -42,7 +42,7 @@ public class PersonaController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    void destroy(@PathVariable Integer id){
+    void eliminar(@PathVariable Integer id){
         Persona persona = personaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
 }

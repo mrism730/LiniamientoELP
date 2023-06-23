@@ -9,7 +9,7 @@ public class UsuariosDTO {
 
     private String usuario;
 
-    private  String passwoord;
+    private String passwoord;
 
 
 }

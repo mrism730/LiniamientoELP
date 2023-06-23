@@ -14,16 +14,18 @@ public class Usuarios {
     @Column(name = "id")
     private Integer id;
 
+    private String usuario;
+    private String passwoord;
+
      @ManyToOne
-    @JoinColumn(name = "idrol",referencedColumnName ="idrol",nullable = false )
-    private Rol rol;
+    @JoinColumn(name = "idRol")
+    private Rol idRol;
 
     @ManyToOne
-    @JoinColumn(name = "idpersona",referencedColumnName ="idpersona",nullable = false )
-    private Persona persona;
+    @JoinColumn(name = "idPersona")
+    private Persona idPersona;
 
 
-     private String usuario;
-     private String passwoord;
+
 
 }
