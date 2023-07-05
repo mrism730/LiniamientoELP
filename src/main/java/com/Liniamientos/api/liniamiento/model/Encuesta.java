@@ -3,6 +3,8 @@ package com.Liniamientos.api.liniamiento.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 @Table(name = "encuesta")
@@ -12,13 +14,15 @@ public class Encuesta {
     @Column(name = "id")
     private Integer id;
 
-    private String nombreEncuesta;
-    private String codigoEncuesta;
-    private String fecha;
-
     @OneToOne
     @JoinColumn(name="idUsuarios")
     private Usuarios idUsuarios;
+
+    private String nombreEncuesta;
+    private Integer codigoEncuesta;
+    private Date fecha;
+
+
 
 
 }

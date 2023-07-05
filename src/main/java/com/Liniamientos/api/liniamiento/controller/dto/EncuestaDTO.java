@@ -1,8 +1,10 @@
 package com.Liniamientos.api.liniamiento.controller.dto;
 
+import java.util.Date;
+
 public class EncuestaDTO {
 
     private String nombreEncuesta;
-    private String codigoEncuesta;
-    private String fecha;
+    private Integer codigoEncuesta;
+    private Date fecha;
 }
